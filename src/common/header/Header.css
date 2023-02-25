@@ -21,3 +21,9 @@ img{
       transform: rotate(359deg);
     }
   }
+
+.float-right{
+    float: right;
+}
+
+
