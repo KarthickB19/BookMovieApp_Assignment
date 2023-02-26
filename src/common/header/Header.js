@@ -17,6 +17,19 @@ const Header = () => {
     setTabIndex(newTabIndex);
   };
 
+  //Validate if the user is logged in to show the logout button
+  const [authenticated, setauthenticated] = React.useState(false);
+  
+  React.useEffect(() => {
+    const loggedInUser = localStorage.getItem("authenticated");
+    if (loggedInUser != null) {
+      setauthenticated(loggedInUser);
+      
+    }
+  }, []);
+
+ 
+
   function openModal() {
     setIsOpen(true);
   }
@@ -27,8 +40,10 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img src={logo} />
-      <Button variant="contained" className="float-right" onClick={openModal}>Login</Button>
+      <img src={logo} className="img"/>
+      {authenticated &&
+         <Button variant="contained" className="float-right" onClick={openModal}>Login</Button>
+      }
       <ReactModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -52,8 +67,12 @@ const Header = () => {
         )}
 
       </ReactModal>
+ 
+       {!authenticated  &&
+         <Button variant="contained" className="float-right">Logout</Button>
+       }
 
-      {/* <Button variant="contained" className="float-right">Logout</Button>
+      {/* 
           <Button variant="contained" color="primary" className="float-right">Book Show</Button> */}
     </div>
   )

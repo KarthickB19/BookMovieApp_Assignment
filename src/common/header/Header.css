@@ -7,7 +7,7 @@
     padding-left: 16px;
 }
 
-img{
+.img{
     background-color:  #ff7f7f;
     height: 35px;
     animation: rotation 8s linear infinite;
