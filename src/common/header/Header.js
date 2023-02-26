@@ -2,8 +2,10 @@ import React from "react";
 import "./Header.css";
 import logo from '../../assets/logo.svg';
 import { Button } from "@material-ui/core";
-import { Tabs, FormControl, Tab, TextField, Typography } from '@material-ui/core';
+import { Tabs, Tab } from '@material-ui/core';
 import ReactModal from "react-modal";
+import Login from "../../screens/login/Login";
+import Register from "../../screens/register/Register";
 
 const Header = () => {
 
@@ -14,7 +16,6 @@ const Header = () => {
   const handleTabChange = (event, newTabIndex) => {
     setTabIndex(newTabIndex);
   };
-
 
   function openModal() {
     setIsOpen(true);
@@ -44,45 +45,10 @@ const Header = () => {
           <Tab label="REGISTER" />
         </Tabs>
         {tabIndex === 0 && (
-        
-          <FormControl noValidate autoComplete="off" size="small">
-            <div>
-            <TextField id="standard-basic" label="Username" multiline required/>
-            </div>
-            <div>
-            <TextField id="standard-basic" label="Password" multiline required/>
-            </div>
-            <div>    
-            <Button variant="contained" color="primary">
-              Login
-            </Button>
-            </div>
-          </FormControl>
-    
+          <Login/> 
         )}
          {tabIndex === 1 && (
-          <FormControl noValidate autoComplete="off">
-            <div>
-            <TextField id="standard-basic" label="First Name" className="input" required/>
-            </div>
-            <div>
-            <TextField id="standard-basic" label="Last Name" className="input" required/>
-            </div>
-            <div>
-            <TextField id="standard-basic" label="Email" className="input" required/>
-            </div>
-            <div>
-            <TextField id="standard-basic" label="Password" required/>
-            </div>
-            <div>
-            <TextField id="standard-basic" label="Contact No" className="input" required/>
-            </div>
-            <div>
-            <Button variant="contained" color="primary">
-              Register
-            </Button>
-            </div>
-          </FormControl>
+          <Register/>
         )}
 
       </ReactModal>
