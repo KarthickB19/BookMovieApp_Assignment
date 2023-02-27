@@ -12,21 +12,22 @@
     font-size: 1rem;
 }
 
-.split {
-    width: 30%;
-    position: absolute;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  /* Control the left side */
-  .left {
-    left: 0;
-    background-color: #111;
-  }
-  
-  /* Control the right side */
-  .right {
-    right: 0;
-    background-color: red;
-  }
+.flex-container {
+  display: flex;
+  font-family: arial, sans-serif;
+}
+
+.movie-release {
+  width: 76%;
+  padding: 2em;
+  color: #ffffff;
+  background: #eeeeee;
+  min-height: 200px;
+  margin: 16px;
+}
+
+.movie-filter {
+  color: #222;
+  background: #ccc;
+  margin: 16px;
+}

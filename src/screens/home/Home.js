@@ -11,60 +11,72 @@ import movieData from "../movieData.js";
 
 
 const styles = theme => ({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.paper,
-    },
-    gridList: {
-      flexWrap: 'nowrap',
-      // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
-      transform: 'translateZ(0)',
-    },
-    title: {
-      color: theme.palette.primary.light,
-    },
-    titleBar: {
-      background:
-        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-    },
-  })
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+  gridList: {
+    flexWrap: 'nowrap',
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)',
+  },
+  title: {
+    color: theme.palette.primary.light,
+  },
+  titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
+})
 
 const Home = () => {
-    return(
-        <div>
-            <Header/>
-            <div className="headerHome">
-            <p className="textPara">Upcoming Movies</p>
-            </div>
-            <div>
-            <GridList cols={6}>
+  return (
+    <div>
+      <Header />
+      <div className="headerHome">
+        <p className="textPara">Upcoming Movies</p>
+      </div>
+      <div>
+        <GridList cols={6}>
+          {movieData.map(tile => (
+            <GridListTile key={tile.img}>
+              <img src={tile.img} alt={tile.title} />
+              <GridListTileBar
+                title={tile.author}
+                actionIcon={
+                  <IconButton>
+                    <StarBorderIcon />
+                  </IconButton>
+                }
+              />
+            </GridListTile>
+          ))}
+        </GridList>
+      </div>
+      <div className="flex-container">
+        <div className="movie-release">
+          <GridList cellHeight={350} className="gridList" cols={4}>
             {movieData.map(tile => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={tile.author}
-              actionIcon={
-                <IconButton>
-                  <StarBorderIcon />
-                </IconButton>
-              }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
-      </div>
-      <div className="split left">
-        
-      </div>
-      <div className="split right">
-
-      </div>
+              <GridListTile key={tile.img}>
+                <img src={tile.img} alt={tile.title} />
+                <GridListTileBar
+                  title={tile.title}
+                  subtitle={<span>by: {tile.author}</span>}
+                />
+              </GridListTile>
+            ))}
+          </GridList>
         </div>
-    )
-       
+        <div className="movie-filter">
+
+        </div>
+      </div>
+    </div>
+  )
+
 }
 
 export default Home;
