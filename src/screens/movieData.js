@@ -1,37 +1,37 @@
 
 const movieData = [
     {
-      img: '../images/movies/breakfast.jpg',
+      img: '../../../images/movies/master.jpg',
       title: 'Breakfast',
-      author: 'jill111',
+      author: 'Master',
       cols: 2,
       featured: true,
     },
     {
-      img: '../images/movies/breakfast.jpg',
+      img: '../../../images/movies/jailer.jpg',
       title: 'Tasty burger',
-      author: 'director90',
+      author: 'Jailer',
     },
     {
-      img: '/../images/movies/breakfast.jpg',
+      img: '../../../images/movies/kaithi.jpg',
       title: 'Camera',
-      author: 'Danson67',
+      author: 'Kaithi',
     },
     {
-      img: '../images/movies/breakfast.jpg',
+      img: '../../../images/movies/kantara.jpg',
       title: 'Morning',
-      author: 'fancycrave1',
+      author: 'kantara',
       featured: true,
     },
     {
-      img: '../images/movies/breakfast.jpg',
+      img: '../../../images/movies/thunivu.jpg',
       title: 'Hats',
-      author: 'Hans',
+      author: 'Thunivu',
     },
     {
-      img: '../images/movies/breakfast.jpg',
+      img: '../../../images/movies/vikram.jpg',
       title: 'Honey',
-      author: 'fancycravel',
+      author: 'Vikram',
     },
   ];
   
