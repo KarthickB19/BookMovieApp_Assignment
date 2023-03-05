@@ -1,15 +1,17 @@
 .headerHome{
     background-color: #ff9999;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 8px;
-    padding-left: 8px;
     text-align : center;
     height: 30px;
 }
 
 .textPara{
     font-size: 1rem;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
 }
 
 .flex-container {
@@ -18,7 +20,7 @@
 }
 
 .movie-release {
-  width: 76%;
+  width: 70%;
   padding: 2em;
   color: #ffffff;
   background: #eeeeee;
@@ -30,4 +32,9 @@
   color: #222;
   background: #ccc;
   margin: 16px;
+}
+
+.formControl {
+  width: 12px;
+  margin: "theme.spacing.unit";
 }
