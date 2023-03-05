@@ -5,12 +5,13 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
+import Checkbox from '@material-ui/core/Checkbox';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import movieData from "../movieData.js";
 import releasedMovie from "../releasedMovie";
 import Card from '@material-ui/core/Card';
-import { CardContent, CardHeader, FormControl, TextField } from "@material-ui/core";
-import Select  from '@material-ui/core/Select';
+import { CardContent, CardHeader, FormControl, TextField, Button } from "@material-ui/core";
+import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Link } from "react-router-dom";
 
@@ -23,14 +24,17 @@ const Home = () => {
     setGenre(event.target.value);
   };
 
+  //Add theme
+
+
 
   return (
     <div>
       <Header />
       <div className="headerHome">
-        <p className="textPara">Upcoming Movies</p>
+        <span className="textPara">Upcoming Movies</span>
       </div>
-      <div>
+      <div class="ScrollStyle">
         <GridList cellHeight={250} cols={6}>
           {movieData.map(tile => (
             <GridListTile key={tile.img}>
@@ -49,18 +53,18 @@ const Home = () => {
       </div>
       <div className="flex-container">
         <div className="movie-release">
-          <GridList cellHeight={350} className="gridList" cols={4}>
+          <GridList cellHeight={350} className="gridList" cols={3}>
             {releasedMovie.map(tile => (
               <GridListTile key={tile.img}>
-                <Link to={{ 
-                pathname: `/movie/${tile.id}`, 
-                state : `${tile.id}` 
-                }}> 
-                <img src={tile.img} alt={tile.title} />
+                <Link to={{
+                  pathname: `/movie/${tile.id}`,
+                  state: `${tile.id}`
+                }}>
+                  <img src={tile.img} alt={tile.title} className="image" />
                 </Link>
                 <GridListTileBar
                   title={tile.title}
-                  subtitle={<span>Release: {tile.author}</span>}
+                  subtitle={<span>Release: {tile.released}</span>}
                 />
               </GridListTile>
             ))}
@@ -69,11 +73,12 @@ const Home = () => {
         <div className="movie-filter">
           <Card square elevation={20}>
             <CardContent>
-              <CardHeader title="FIND MOVIES BY" />
+              <CardHeader title="FIND MOVIES BY (Not implemented)" />
               <div>
                 <FormControl className="formControl">
-  
-                  <TextField label="Movie Name" />              
+                  <TextField label="Movie Name" />
+                </FormControl>
+                <FormControl className="formControl">
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -81,28 +86,63 @@ const Home = () => {
                     label="Age"
                     onChange={handleChange}
                   >
-                      <MenuItem value="Genres">
-                    <em>Genres</em>
-                  </MenuItem>
-                    <MenuItem value={10}>Horror</MenuItem>
-                    <MenuItem value={20}>Adventure</MenuItem>
-                    <MenuItem value={30}>Thriller</MenuItem>
-                  </Select>
+                    <MenuItem value={10}>
+                      <Checkbox
+                        value=""
+                      />
+                      Horror
+                    </MenuItem>
+                    <MenuItem value={10}>
+                      <Checkbox
+                        value=""
+                      />
+                      Drama
+                    </MenuItem>
+                    <MenuItem value={10}>
+                      <Checkbox
+                        value=""
+                      />
+                      Romance
+                    </MenuItem>
+                    <MenuItem value={10}>
+                      <Checkbox
+                        value=""
+                      />
+                      Thriller
+                    </MenuItem>
+                  </Select> 
+                </FormControl>
+                <FormControl className="formControl">
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={genre}
+                    value="genre"
                     label="Artist"
                     onChange={handleChange}
                   >
-                      <MenuItem value="Genres">
-                    <em>Artist</em>
-                  </MenuItem>
-                    <MenuItem value={10}>Vijay</MenuItem>
-                    <MenuItem value={20}>Ajith</MenuItem>
-                    <MenuItem value={30}>Rajini</MenuItem>
+                    <MenuItem value={10}><Checkbox
+                        value=""
+                      />Vijay</MenuItem>
+                    <MenuItem value={20}><Checkbox
+                        value=""
+                      />Ajith</MenuItem>
+                    <MenuItem value={30}><Checkbox
+                        value=""
+                      />Rajini</MenuItem>
+                    <MenuItem value={30}><Checkbox
+                        value=""
+                      />Dhanush</MenuItem>
                   </Select>
                 </FormControl>
+                <FormControl className="formControl">
+                  <TextField type="date" />
+                </FormControl>
+                <FormControl className="formControl">
+                  <TextField type="date" />
+                </FormControl>
+                <br />
+                <br />
+                <Button variant="contained" color="primary" className="float-middle">APPLY</Button>
               </div>
             </CardContent>
           </Card>

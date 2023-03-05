@@ -26,10 +26,6 @@ const Header = (props) => {
 
   const history = useHistory();
 
-  // React.useEffect( () => {
-  //   alert(props.value);
-  // },[]);
-
   //Handler to fetch value user
   const userNameHandler = (event) =>{
     let userName = event.target.value;

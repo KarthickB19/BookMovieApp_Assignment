@@ -25,7 +25,7 @@ const releasedMovie = [
     id: '2',
     img: '../../../images/movies/vaathi.jpg',
     title: 'Vaathi ',
-    released: '23 February 2023',
+    released: '17 February 2023',
     genre: 'Drama',
     duration: '2h 10 mins',
     rating: '9.9',

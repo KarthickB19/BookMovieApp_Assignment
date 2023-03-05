@@ -7,7 +7,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import releasedMovie from "../releasedMovie";
 import YouTube from 'react-youtube';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom"
 
 const Details = (props) => {
@@ -15,22 +15,27 @@ const Details = (props) => {
     
     const location = useLocation();
     const propsData = location.state;
+    const history = useHistory();
 
     let items = releasedMovie.find(tile => tile.id == propsData);
+
+    function returnBack(){
+        history.push("/");
+    }
 
     return (
         <div>
             <Header value="allow book" />
             <div className="back">
                 <Typography variant="button">
-                    <Button className="button-home"> Back to Home </Button>
+                    <Button className="button-home" onClick={returnBack}> Back to Home </Button>
                 </Typography>
             </div>
             <div className="flex-container">
                 <div className="movie-picture">
                     <GridList cellHeight={400}>
                         <GridListTile key={items.id}>
-                            <img src={items.img} alt={items.title} />
+                            <img src={items.img} alt={items.title} width="100%" />
                         </GridListTile>
                     </GridList>
                 </div>
@@ -49,7 +54,7 @@ const Details = (props) => {
                         <span className="make-bold">Release Date:</span> {items.released}
                     </Typography>
                     <Typography>
-                        <span className="make-bold">Rating:</span> {items.rating}
+                        <span className="make-bold">Rating:</span> {items.rating} 
                     </Typography>
                     <br />
                     <Typography>
@@ -68,8 +73,9 @@ const Details = (props) => {
                 <div className="movie-rating">
                     <Typography>
                         <span className="make-bold">Rate this movie:</span>
+                        <span>Yet to Implemented</span>
                     </Typography>
-
+                    <br/>
                     <Typography>
                         <span className="make-bold">Artist:</span>
                         <GridList cellHeight={250} className="gridList" >
