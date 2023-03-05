@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Header.css";
 import logo from '../../assets/logo.svg';
 import Modal from "react-modal";
@@ -9,7 +9,7 @@ import { Button } from "@material-ui/core";
 import { Redirect, useHistory  } from 'react-router-dom';
 import {ValidatorForm} from 'react-material-ui-form-validator';
 
-const Header = () => {
+const Header = (props) => {
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -25,6 +25,10 @@ const Header = () => {
   const [password, setPassword] = React.useState();
 
   const history = useHistory();
+
+  // React.useEffect( () => {
+  //   alert(props.value);
+  // },[]);
 
   //Handler to fetch value user
   const userNameHandler = (event) =>{
@@ -113,8 +117,9 @@ const Header = () => {
          <Button variant="contained" className="float-right" color="default" onClick={Logout}>Logout</Button>
        }
 
-      {/* 
-          <Button variant="contained" color="primary" className="float-right">Book Show</Button> */}
+      { props.value &&
+          <Button variant="contained" color="primary" className="float-right">Book Show</Button> 
+      }
     </div>
   )
 };

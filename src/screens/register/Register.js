@@ -5,7 +5,6 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator'
 
 const Register = () => {
 
-  let submitted = false;
   const [status,setStatus] = React.useState(false);
 
   const [addForm,setForm] = React.useState({
@@ -26,13 +25,11 @@ const Register = () => {
 
   const onFormSubmitted = (e) => {
    setStatus(true);
-   submitted = true;
-   alert(submitted);
+   alert(status);
   }
   return (
     <div>
       <ValidatorForm  onSubmit={onFormSubmitted}>
-
         <TextValidator
           id="name"
           label="First name"
@@ -85,9 +82,8 @@ const Register = () => {
           errorMessages={['required']}
         />  
         {
-         (submitted && <p>'Your form is submitted!' </p>)
+          status  && <p>Registration Successful. Please Login!</p>
         }
-        <br/>
         <Button variant="contained" color="primary" type="submit">
           Register
         </Button>

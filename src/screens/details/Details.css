@@ -1,0 +1,39 @@
+.button-home{
+    float: left;
+    margin-left: 25px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.back{
+    position: absolute;
+}
+
+.movie-picture {
+  height: max-content;
+  width: 20%;
+  padding: 2em;
+  height: 100;
+ 
+  }
+  
+  .movie-content {
+    width: 60%;
+    padding: 2em;
+    height: 100;
+  }
+
+  .movie-rating{
+    width: 20%;
+    padding: 2em;
+    height: 100;
+  }
+  
+.make-bold{
+    font-weight: bold;
+}
+
+
+

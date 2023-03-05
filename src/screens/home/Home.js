@@ -12,7 +12,7 @@ import Card from '@material-ui/core/Card';
 import { CardContent, CardHeader, FormControl, TextField } from "@material-ui/core";
 import Select  from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -52,7 +52,9 @@ const Home = () => {
           <GridList cellHeight={350} className="gridList" cols={4}>
             {releasedMovie.map(tile => (
               <GridListTile key={tile.img}>
-                <Link to={{ pathname: `/movie/${tile.id}`
+                <Link to={{ 
+                pathname: `/movie/${tile.id}`, 
+                state : `${tile.id}` 
                 }}> 
                 <img src={tile.img} alt={tile.title} />
                 </Link>
